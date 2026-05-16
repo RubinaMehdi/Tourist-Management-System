@@ -1,0 +1,2 @@
+XL008,Star,Hunza,888,20000.0,10
+Am00E,Regal,Islamabad,3,20000.0,10
