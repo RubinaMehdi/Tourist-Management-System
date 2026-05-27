@@ -102,5 +102,23 @@ public class Payment implements Payable, Serializable {
         } catch (IOException e) {
             System.err.println("Error saving payment: " + e.getMessage());
         }
+        // File sy data load karna
+@SuppressWarnings("unchecked")
+public static void loadFromFile() {
+    File file = new File(FILE_NAME);
+    if (!file.exists()) return;
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        paymentHistory = (ArrayList<Payment>) ois.readObject();
+    } catch (IOException | ClassNotFoundException e) {
+        System.err.println("Error loading payments: " + e.getMessage());
+    }
+}
+
+// Payment history dikhana
+public static void viewAllPayments() {
+    for (Payment p : paymentHistory) {
+        p.getReceipt();
+    }
+}
     }
 }
