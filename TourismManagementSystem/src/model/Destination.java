@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Destination implements Serializable {
+public class Destination implements Serializable, Displayable {
     private static final long serialVersionUID = 1L;
 
     // Attributes (UML Diagram ke mutabiq)
@@ -107,6 +107,10 @@ public class Destination implements Serializable {
         return "ID: " + destinationID + " | Name: " + destinationName + " (" + country + ") | Rating: " + rating;
     }
 
+    // Displayable interface ka method
+    public void displayDetails() {
+    view();
+    }
     // File Handling: ArrayList ko storage me save karna
     private static void saveToFile() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
